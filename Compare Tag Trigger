@@ -1,0 +1,33 @@
+using UnityEngine;
+
+public class MusicManager : MonoBehaviour
+{
+    // WWISE VARIABLES
+
+    [Header("WWise Events")]
+    // The music event.
+    public AK.Wwise.Event musicEvent;
+
+    // The music stinger.
+    public AK.Wwise.Event stingerEvent;
+
+    [Header("GameObject Emiiter")]
+    // The gameobject that will emmit the sound.  Could also be this gameobject.  
+    public GameObject musicGameObject;
+    
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        musicEvent.Post(musicGameObject);
+    }
+
+   
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            stingerEvent.Post(musicGameObject);
+        }
+    }
+}
