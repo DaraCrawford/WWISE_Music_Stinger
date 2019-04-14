@@ -1,0 +1,17 @@
+using UnityEngine;
+
+public class StingerTrigger : MonoBehaviour
+{
+    // Script reference
+    public MusicManager _musicManager;
+
+    // Trigger the event
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            // Plays method from music manager.
+            _musicManager.PlayStinger();
+        }
+    }
+}
