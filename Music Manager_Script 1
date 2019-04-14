@@ -1,0 +1,29 @@
+using UnityEngine;
+
+public class MusicManager : MonoBehaviour
+{
+    // WWISE VARIABLES
+
+    [Header("WWise Events")]
+    // The music event.
+    public AK.Wwise.Event musicEvent;
+
+    // The music stinger.
+    public AK.Wwise.Event stingerEvent;
+
+    public GameObject MusicGameObject;
+   
+    // Start is called before the first frame update
+    void Start()
+    {
+        musicEvent.Post(gameObject);
+        Debug.Log("Music Started");
+    }
+
+    // Stinger Event
+    public void PlayStinger()
+    {
+        stingerEvent.Post(gameObject);
+        Debug.Log("Stinger Triggered");
+    }
+}
